@@ -1,0 +1,55 @@
+<%- include ("header") %>
+
+<div class="jumbotron bg-dark" style="border-radius: 0">
+  <h1 class="display-4 text-center header-title">Git Finder</h1>
+  <div class="search">
+    <div class="search-input">
+      <form action="/search" method="get">
+        <input type="text" name="searchBar" placeholder="search" autocomplete="off"/>
+        <img
+          src="https://img.icons8.com/fluent-systems-filled/2x/search.png"
+          class="img2"
+          alt=""
+        />
+        <button type="submit">
+          <img
+            src="https://img.icons8.com/fluent-systems-filled/2x/search.png"
+            width="20px"
+            alt=""
+          />
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<section id="our_dev">
+  <div class="dev-title">
+    <h1 class="text-center text-uppercase mb-5">Our Dev</h1>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center row-cols-lg-3">
+      <% for(let i = 0; i < authors.length; i++){ %>
+      <div class="col-md-3">
+        <div class="card card-custom">
+          <img
+            src=" <%= authors[i].avatar_url %> "
+            class="card-img"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= authors[i].login.toUpperCase() %></h5>
+            <a href="/profile/<%= authors[i].login %>"  class="btn btn-primary btn-center"> View</a
+            >
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</section>
+<script>
+  console.log(authors);
+</script>
+
+<%- include ("footer") %>

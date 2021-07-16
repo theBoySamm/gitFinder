@@ -1,0 +1,36 @@
+<%- include ("header") %>
+
+<div class="jumbotron bg-dark">
+  <img src="<%= data.avatar_url %>" class="card-img d-block mx-auto" alt="" />
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card card-custom">
+        <div class="card-body">
+          <h5 class="card-title text-center"> <%= data.name %></h5>
+          <h5 class="card-title text-center"> <%= data.company %></h5>
+          <!-- <h5 class="card-title text-center">  -->
+            <%if (data.bio === null) { %>
+             
+              <h5> <%= data.bio %> </h5>
+              <% } %>
+              
+              <% if(data.bio === null){ %>
+                <h5 class="card-title text-center"> There is no profile for this user... </h5>
+              <% } else{ %>  
+                <h5 class="card-title text-center"> <%= data.bio %> </h5>
+             <% } %>
+             
+             
+          <a class="btn btn-primary btn-center" href="https://github.com/users/${username}" >View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+<%- include ("footer") %>
